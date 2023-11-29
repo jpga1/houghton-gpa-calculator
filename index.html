@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <script src="index.js" defer></script>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: 3fr 1fr 2fr;
+            gap: 10px;
+            width: 700px;
+            padding: 10px;
+            background-color: #37174a;
+        }
+
+        .container > label{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 24px;
+            color: white;
+        }
+
+        .past-gpa-and-credits{
+            display: flex;
+            flex-direction: column;
+            width: 700px;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 24px;
+            background-color: #37174a;
+            color: white;
+        }
+
+        .past-gpa-and-credits > input{
+            margin-bottom: 10px;
+        }
+
+        .calculate-button{
+            display: flex;
+            justify-content: center;
+            width: 700px;
+            padding: 10px;
+            background-color: #daaa00;
+            color: #37174a;
+            font-size: 24px;
+
+        }
+
+        .calculate-button:hover{
+            background-color: #37174a;
+            color: #daaa00;
+        }
+    </style>
+</head>
+<body>
+    <!-- get course name, course credits, and expected credits -->
+    <div class="container">
+        <label for="course-title">Course</label>
+        <label for="credits-earned">Credits</label>
+        <label for="expected-points">Expected Points</label>
+
+        <input type="text" name="course-title">
+        <select name="credits-earned" id="credits-earned">
+            <option value="1.0">1.0</option>
+            <option value="2.0">2.0</option>
+            <option value="3.0">3.0</option>
+            <option value="4.0">4.0</option>
+        </select>
+        <input type="number" name="expected-points">
+
+        <input type="text" name="course-title">
+        <select name="credits-earned" id="credits-earned">
+            <option value="1.0">1.0</option>
+            <option value="2.0">2.0</option>
+            <option value="3.0">3.0</option>
+            <option value="4.0">4.0</option>
+        </select>
+        <input type="number" name="expected-points">
+    </div>
+    <!-- get previous cumulative gpa and credits -->
+    <div class="past-gpa-and-credits">
+        <label for="previous-cumulative-gpa">Previous Cumulative GPA</label>
+        <input type="number" name="previous-cumulative-gpa">
+
+        <label for="previous-cumulative-credits-earned">Previous Cumulative Credits Earned</label>
+        <input type="number" name="previous-cumulative-credits-earned">
+    </div>
+
+    <!-- calculate current and overrall gpa -->
+    <button class="calculate-button">Calculate</button>
+</body>
+</html>
