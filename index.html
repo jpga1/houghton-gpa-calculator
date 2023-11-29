@@ -6,32 +6,50 @@
     <title>GPA Calculator</title>
     <script src="index.js" defer></script>
     <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .container{
-            display: grid;
-            grid-template-columns: 3fr 1fr 2fr;
-            gap: 10px;
+            height: 600px;
             width: 700px;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 2fr 2fr 1fr;
             padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
             background-color: #37174a;
         }
 
-        .container > label{
+        .sub-container{
+            display: grid;
+            grid-template-columns: 3fr 1fr 2fr;
+            grid-template-rows: 50px 50px 50px;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .sub-container > label{
             text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
             font-size: 24px;
             color: white;
         }
 
+        .sub-container > input, select{
+            font-size: 24px;
+        }
+
         .past-gpa-and-credits{
-            display: flex;
-            flex-direction: column;
-            width: 700px;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 50px;
             padding: 10px;
-            font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
             font-size: 24px;
-            background-color: #37174a;
             color: white;
         }
 
@@ -42,55 +60,78 @@
         .calculate-button{
             display: flex;
             justify-content: center;
-            width: 700px;
+            align-items: center;
             padding: 10px;
             background-color: #daaa00;
             color: #37174a;
             font-size: 24px;
-
-        }
-
-        .calculate-button:hover{
-            background-color: #37174a;
-            color: #daaa00;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <!-- get course name, course credits, and expected credits -->
     <div class="container">
-        <label for="course-title">Course</label>
-        <label for="credits-earned">Credits</label>
-        <label for="expected-points">Expected Points</label>
+        <!-- get course name, course credits, and expected credits -->
+        <div class="sub-container">
+            <label for="course-title">Course</label>
+            <label for="credits-earned">Credits</label>
+            <label for="expected-points">Expected Grade</label>
 
-        <input type="text" name="course-title">
-        <select name="credits-earned" id="credits-earned">
-            <option value="1.0">1.0</option>
-            <option value="2.0">2.0</option>
-            <option value="3.0">3.0</option>
-            <option value="4.0">4.0</option>
-        </select>
-        <input type="number" name="expected-points">
+            <input type="text" name="course-title">
+            <select name="credits-earned" id="credits-earned">
+                <option value="1.0">1.0</option>
+                <option value="2.0">2.0</option>
+                <option value="3.0">3.0</option>
+                <option value="4.0">4.0</option>
+            </select>
+            <select name="expected-grade" id="expected-grade">
+                <option value="4.0">A</option>
+                <option value="3.67">A-</option>
+                <option value="3.33">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.67">B-</option>
+                <option value="2.33">C+</option>
+                <option value="2.00">C</option>
+                <option value="1.67">C-</option>
+                <option value="1.33">D+</option>
+                <option value="1.00">D</option>
+                <option value="0.67">D-</option>
+                <option value="0">F</option>
+            </select>
 
-        <input type="text" name="course-title">
-        <select name="credits-earned" id="credits-earned">
-            <option value="1.0">1.0</option>
-            <option value="2.0">2.0</option>
-            <option value="3.0">3.0</option>
-            <option value="4.0">4.0</option>
-        </select>
-        <input type="number" name="expected-points">
+            <input type="text" name="course-title">
+            <select name="credits-earned" id="credits-earned">
+                <option value="1.0">1.0</option>
+                <option value="2.0">2.0</option>
+                <option value="3.0">3.0</option>
+                <option value="4.0">4.0</option>
+            </select>
+            <select name="expected-grade" id="expected-grade">
+                <option value="4.0">A</option>
+                <option value="3.67">A-</option>
+                <option value="3.33">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.67">B-</option>
+                <option value="2.33">C+</option>
+                <option value="2.00">C</option>
+                <option value="1.67">C-</option>
+                <option value="1.33">D+</option>
+                <option value="1.00">D</option>
+                <option value="0.67">D-</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- get previous cumulative gpa and credits -->
+        <div class="past-gpa-and-credits">
+            <label for="previous-cumulative-gpa">Previous Cumulative GPA</label>
+            <input type="number" name="previous-cumulative-gpa">
+
+            <label for="previous-cumulative-credits-earned">Previous Cumulative Credits Earned</label>
+            <input type="number" name="previous-cumulative-credits-earned">
+        </div>
+
+        <!-- calculate current and overrall gpa -->
+        <button class="calculate-button">Calculate</button>
     </div>
-    <!-- get previous cumulative gpa and credits -->
-    <div class="past-gpa-and-credits">
-        <label for="previous-cumulative-gpa">Previous Cumulative GPA</label>
-        <input type="number" name="previous-cumulative-gpa">
-
-        <label for="previous-cumulative-credits-earned">Previous Cumulative Credits Earned</label>
-        <input type="number" name="previous-cumulative-credits-earned">
-    </div>
-
-    <!-- calculate current and overrall gpa -->
-    <button class="calculate-button">Calculate</button>
 </body>
 </html>
