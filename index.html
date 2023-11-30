@@ -120,14 +120,36 @@
                 <option value="0.67">D-</option>
                 <option value="0">F</option>
             </select>
+
+            <input type="text" name="course-title">
+            <select name="credits-earned" id="credits-earned">
+                <option value="1.0">1.0</option>
+                <option value="2.0">2.0</option>
+                <option value="3.0">3.0</option>
+                <option value="4.0">4.0</option>
+            </select>
+            <select name="expected-grade" id="expected-grade">
+                <option value="4.0">A</option>
+                <option value="3.67">A-</option>
+                <option value="3.33">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.67">B-</option>
+                <option value="2.33">C+</option>
+                <option value="2.00">C</option>
+                <option value="1.67">C-</option>
+                <option value="1.33">D+</option>
+                <option value="1.00">D</option>
+                <option value="0.67">D-</option>
+                <option value="0">F</option>
+            </select>
         </div>
         <!-- get previous cumulative gpa and credits -->
         <div class="past-gpa-and-credits">
             <label for="previous-cumulative-gpa">Previous Cumulative GPA</label>
-            <input type="number" name="previous-cumulative-gpa">
+            <input type="number" name="previous-cumulative-gpa" id="previous-cumulative-gpa">
 
             <label for="previous-cumulative-credits-earned">Previous Cumulative Credits Earned</label>
-            <input type="number" name="previous-cumulative-credits-earned">
+            <input type="number" name="previous-cumulative-credits-earned" id="previous-cumulative-credits-earned">
         </div>
 
         <!-- calculate current and overrall gpa -->

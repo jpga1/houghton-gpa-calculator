@@ -11,20 +11,48 @@ calculateButton.addEventListener('click', () => {
         totalCredits += Number(credit.value)
     })
 
-    console.log("a: " + totalCredits)
+    console.log("current semester credits: " + totalCredits)
 
     // Calculate the weighted sum
     const expectedGrades = document.querySelectorAll('#expected-grade')
     let weightedSum = 0
 
-    // TODO: Figure out how to extract the values of credits earned and expected grades in order to calculate the weighted sum
+    const expectedGradesArray = []
+
     expectedGrades.forEach(grade => {
-        console.log(grade.value)
+        expectedGradesArray.push(grade.value)
     })
 
-    // (creditsEarned, expectedGrades).forEach((credit, grade) => {
-    //     weightedSum += Number(credit.value) * Number(grade.value)
-    // })
+    const creditsEarnedArray = []
 
-    // console.log("b: " + weightedSum)
+    creditsEarned.forEach(credit => {
+        creditsEarnedArray.push(credit.value)
+    })
+
+    let foo = expectedGradesArray.map((value, index) => {
+        return value * creditsEarnedArray[index]
+    })
+
+    foo.forEach(value => {
+        weightedSum += value
+    })
+
+    console.log("weighted sum: " + weightedSum)
+
+    // Calculate current semester gpa and overall gpa
+    console.log("current semester gpa: " + (weightedSum/totalCredits))
+
+    const previousCumulativeGPA = document.querySelector('#previous-cumulative-gpa').value
+    const previousCumulativeCredits = document.querySelector('#previous-cumulative-credits-earned').value
+
+    console.log('previous cumulative gpa: ' + previousCumulativeGPA)
+    console.log('previous cumulative credits: ' + previousCumulativeCredits)
+
+    // console.log('b + c * d = ' + (weightedSum + (previousCumulativeGPA * previousCumulativeCredits)))
+    // console.log('a + d = ' + (totalCredits + previousCumulativeCredits))
+    // console.log(typeof previousCumulativeCredits)
+
+    console.log("overall gpa: " + ((weightedSum + (previousCumulativeGPA * previousCumulativeCredits))/(totalCredits + Number(previousCumulativeCredits))))
+
+    // TODO: Optimize code and properly output results
 })
