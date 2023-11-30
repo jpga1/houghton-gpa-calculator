@@ -8,6 +8,7 @@
     <style>
         body{
             height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,9 +17,11 @@
         .container{
             height: 600px;
             width: 700px;
+
             display: grid;
             grid-template-columns: auto;
-            grid-template-rows: 2fr 2fr 1fr;
+            grid-template-rows: 2fr 1fr 2fr 1fr;
+            
             padding: 10px;
             font-family: Arial, Helvetica, sans-serif;
             background-color: #37174a;
@@ -29,6 +32,7 @@
             grid-template-columns: 3fr 1fr 2fr;
             grid-template-rows: 50px 50px 50px;
             gap: 10px;
+
             padding: 10px;
         }
 
@@ -47,6 +51,7 @@
             display: grid;
             grid-template-columns: auto;
             grid-template-rows: 50px;
+            
             padding: 10px;
             font-weight: bold;
             font-size: 24px;
@@ -55,17 +60,24 @@
 
         .past-gpa-and-credits > input{
             margin-bottom: 10px;
+            font-size: 24px;
         }
 
-        .calculate-button{
+        .calculate-button, .add-row-button{
             display: flex;
             justify-content: center;
             align-items: center;
+
             padding: 10px;
             background-color: #daaa00;
             color: #37174a;
             font-size: 24px;
             font-weight: bold;
+        }
+
+        .add-row-button{
+            background-color: blue;
+            color: white;
         }
     </style>
 </head>
@@ -143,6 +155,10 @@
                 <option value="0">F</option>
             </select>
         </div>
+
+        <!-- add additional row -->
+        <button class="add-row-button">Add Row</button>
+
         <!-- get previous cumulative gpa and credits -->
         <div class="past-gpa-and-credits">
             <label for="previous-cumulative-gpa">Previous Cumulative GPA</label>
