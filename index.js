@@ -26,6 +26,16 @@ calculateButton.addEventListener('click', () => {
     // TODO: Optimize code
 })
 
+addRowButton.addEventListener('click', () => {
+    const subContainer = document.querySelector('.sub-container')
+    const newRow = makeNewRow()
+
+    // Add row items into the sub-container
+    newRow.forEach(rowItem => {
+        subContainer.append(rowItem)
+    })
+})
+
 function outputResultsToDocument(currentSemesterGPA, overallGPA){
     const currentSemesterGPAOutput = document.createElement('span')
     const overallGPAOutput = document.createElement('span')
@@ -44,16 +54,6 @@ function outputResultsToDocument(currentSemesterGPA, overallGPA){
     container.append(currentSemesterGPAOutput)
     container.append(overallGPAOutput)
 }
-
-addRowButton.addEventListener('click', () => {
-    const subContainer = document.querySelector('.sub-container')
-    const newRow = makeNewRow()
-
-    // Add row items into the sub-container
-    newRow.forEach(rowItem => {
-        subContainer.append(rowItem)
-    })
-})
 
 function makeNewRow(){
     const courseTitleInput = document.createElement('input')
