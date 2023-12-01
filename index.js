@@ -70,7 +70,7 @@ function makeNewRow(){
     courseCreditInput.id = 'credits-earned'
     
     const courseCreditInputDefaultOption = document.createElement('option')
-    courseCreditInputDefaultOption.selected
+    courseCreditInputDefaultOption.selected = true
 
     courseCreditInput.append(courseCreditInputDefaultOption)
 
@@ -84,7 +84,7 @@ function makeNewRow(){
     expectedGradeInput.id = 'expected-grade'
 
     const expectedGradeInputDefaultOption = document.createElement('option')
-    expectedGradeInputDefaultOption.selected
+    expectedGradeInputDefaultOption.selected = true
 
     expectedGradeInput.append(expectedGradeInputDefaultOption)
 
