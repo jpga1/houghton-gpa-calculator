@@ -37,18 +37,21 @@ addRowButton.addEventListener('click', () => {
 })
 
 function outputResultsToDocument(currentSemesterGPA, overallGPA){
+    // Prepare string
     const currentSemesterGPAOutput = document.createElement('span')
     const overallGPAOutput = document.createElement('span')
 
     currentSemesterGPAOutput.innerText = 'Current GPA: ' + currentSemesterGPA
     overallGPAOutput.innerHTML = 'Overall GPA: ' + overallGPA
 
+    // Style
     currentSemesterGPAOutput.style.color = 'white'
     overallGPAOutput.style.color = 'white'
 
     currentSemesterGPAOutput.style.fontSize = '24px'
     overallGPAOutput.style.fontSize = '24px'
 
+    // Add to document
     const container = document.querySelector('.container')
 
     container.append(currentSemesterGPAOutput)
@@ -56,10 +59,12 @@ function outputResultsToDocument(currentSemesterGPA, overallGPA){
 }
 
 function makeNewRow(){
+    // New course title input field
     const courseTitleInput = document.createElement('input')
     courseTitleInput.type = 'text'
     courseTitleInput.name = 'course-title'
 
+    // New course credit input field
     const courseCreditInput = document.createElement('select')
     courseCreditInput.name = 'credits-earned'
     courseCreditInput.id = 'credits-earned'
@@ -73,6 +78,7 @@ function makeNewRow(){
         courseCreditInput.append(makeNewOption(i.toFixed(1), i.toFixed(1)))
     }
 
+    // New expected grade input field
     const expectedGradeInput = document.createElement('select')
     expectedGradeInput.name = 'expected-grade'
     expectedGradeInput.id = 'expected-grade'
