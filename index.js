@@ -52,7 +52,8 @@ calculateButton.addEventListener('click', () => {
     // console.log('a + d = ' + (totalCredits + previousCumulativeCredits))
     // console.log(typeof previousCumulativeCredits)
 
-    console.log("overall gpa: " + ((weightedSum + (previousCumulativeGPA * previousCumulativeCredits))/(totalCredits + Number(previousCumulativeCredits))))
+    console.log("overall gpa: " + ((weightedSum + (previousCumulativeGPA * previousCumulativeCredits))/(totalCredits + Number(previousCumulativeCredits))).toFixed(2))
 
-    // TODO: Optimize code and properly output results
+    // TODO: Optimize code
+    // TODO: Output results to page
 })
