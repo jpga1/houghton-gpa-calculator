@@ -86,20 +86,11 @@ function makeNewRow(){
     const expectedGradeInputDefaultOption = document.createElement('option')
     expectedGradeInputDefaultOption.selected = true
 
-    expectedGradeInput.append(expectedGradeInputDefaultOption)
-
-    expectedGradeInput.append(makeNewOption(4.0, 'A'))
-    expectedGradeInput.append(makeNewOption(3.67, 'A-'))
-    expectedGradeInput.append(makeNewOption(3.33, 'B+'))
-    expectedGradeInput.append(makeNewOption(3.0, 'B'))
-    expectedGradeInput.append(makeNewOption(2.67, 'B-'))
-    expectedGradeInput.append(makeNewOption(2.33, 'C+'))
-    expectedGradeInput.append(makeNewOption(2.0, 'C'))
-    expectedGradeInput.append(makeNewOption(1.67, 'C-'))
-    expectedGradeInput.append(makeNewOption(1.33, 'D+'))
-    expectedGradeInput.append(makeNewOption(1.0, 'D'))
-    expectedGradeInput.append(makeNewOption(0.67, 'D-'))
-    expectedGradeInput.append(makeNewOption(0, 'F'))
+    expectedGradeInput.append(expectedGradeInputDefaultOption, makeNewOption(4.0, 'A'),
+        makeNewOption(3.67, 'A-'), makeNewOption(3.33, 'B+'), makeNewOption(3.0, 'B'),
+        makeNewOption(2.67, 'B-'), makeNewOption(2.33, 'C+'), makeNewOption(2.0, 'C'),
+        makeNewOption(1.67, 'C-'), makeNewOption(1.33, 'D+'), makeNewOption(1.0, 'D'),
+        makeNewOption(0.67, 'D-'), makeNewOption(0, 'F'))
 
     return [courseTitleInput, courseCreditInput, expectedGradeInput]
 }
