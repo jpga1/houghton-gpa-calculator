@@ -9,21 +9,22 @@ calculateButton.addEventListener('click', () => {
     let totalCredits = calculateCurrentSemesterCredits(creditsEarned)
 
     // Calculate the weighted sum
-    const expectedGrades = document.querySelectorAll('#expected-grade')
-    let weightedSum = calculateWeightedSum(expectedGrades, creditsEarned)
+    let weightedSum = calculateWeightedSum(document.querySelectorAll('#expected-grade'), creditsEarned)
 
     // Calculate current semester gpa and overall gpa
 
-    const currentSemesterGPA = calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(2)
+    // const currentSemesterGPA = calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(2)
     
-    const overallGPA = calculateOverallGPA(weightedSum,
-        document.querySelector('#previous-cumulative-gpa').value,
-        document.querySelector('#previous-cumulative-credits-earned').value,
-        totalCredits).toFixed(2)
+    // const overallGPA = calculateOverallGPA(weightedSum,
+    //     document.querySelector('#previous-cumulative-gpa').value,
+    //     document.querySelector('#previous-cumulative-credits-earned').value,
+    //     totalCredits).toFixed(2)
     
-    outputResultsToDocument(currentSemesterGPA, overallGPA)
+    // outputResultsToDocument(currentSemesterGPA, overallGPA)
 
-    // TODO: Optimize code
+    outputResultsToDocument(calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(2),
+        calculateOverallGPA(weightedSum, document.querySelector('#previous-cumulative-gpa').value,
+        document.querySelector('#previous-cumulative-credits-earned').value, totalCredits).toFixed(2))
 })
 
 addRowButton.addEventListener('click', () => {
@@ -117,23 +118,14 @@ function calculateCurrentSemesterCredits(creditsEarned){
 function calculateWeightedSum(expectedGrades, creditsEarned){
     let weightedSum = 0
 
-    const expectedGradesArray = []
+    const expectedGradesArray = [...expectedGrades].map(grade => {return grade.value}).filter(grade => grade !== '')
 
-    expectedGrades.forEach(grade => {
-        expectedGradesArray.push(grade.value)
-    })
+    const creditsEarnedArray = [...creditsEarned].map(credit => {return credit.value}).filter(credit => credit !== '')
 
-    const creditsEarnedArray = []
-
-    creditsEarned.forEach(credit => {
-        creditsEarnedArray.push(credit.value)
-    })
-
-    let creditsEarnedAndExpectedGradeProductArray = expectedGradesArray.map((value, index) => {
+    // Weighted sum calculation
+    expectedGradesArray.map((value, index) => {
         return value * creditsEarnedArray[index]
-    })
-
-    creditsEarnedAndExpectedGradeProductArray.forEach(value => {
+    }).forEach(value => {
         weightedSum += value
     })
 
