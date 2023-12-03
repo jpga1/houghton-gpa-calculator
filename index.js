@@ -96,7 +96,7 @@ function makeNewRow(){
     return [courseTitleInput, courseCreditInput, expectedGradeInput]
 }
 
-// Make a new option for dropdowns
+// Make a new option for select inputs
 function makeNewOption(value, text){
     const newOption = document.createElement('option')
     newOption.value = value
