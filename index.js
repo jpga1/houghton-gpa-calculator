@@ -28,12 +28,12 @@ calculateButton.addEventListener('click', () => {
 })
 
 addRowButton.addEventListener('click', () => {
-    const subContainer = document.querySelector('.sub-container')
+    const courseCreditsAndExpectedGrade = document.querySelector('.course-credits-and-expected-grade')
     const newRow = makeNewRow()
 
     // Add row items into the sub-container
     newRow.forEach(rowItem => {
-        subContainer.append(rowItem)
+        courseCreditsAndExpectedGrade.append(rowItem)
     })
 })
 
