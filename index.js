@@ -13,18 +13,14 @@ calculateButton.addEventListener('click', () => {
 
     // Calculate current semester gpa and overall gpa
 
-    // const currentSemesterGPA = calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(2)
+    const currentSemesterGPA = calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(2)
     
-    // const overallGPA = calculateOverallGPA(weightedSum,
-    //     document.querySelector('#previous-cumulative-gpa').value,
-    //     document.querySelector('#previous-cumulative-credits-earned').value,
-    //     totalCredits).toFixed(2)
+    const overallGPA = calculateOverallGPA(weightedSum,
+        document.querySelector('#previous-cumulative-gpa').value,
+        document.querySelector('#previous-cumulative-credits-earned').value,
+        totalCredits).toFixed(2)
     
-    // outputResultsToDocument(currentSemesterGPA, overallGPA)
-
-    outputResultsToDocument(calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(2),
-        calculateOverallGPA(weightedSum, document.querySelector('#previous-cumulative-gpa').value,
-        document.querySelector('#previous-cumulative-credits-earned').value, totalCredits).toFixed(2))
+    outputResultsToDocument(currentSemesterGPA, overallGPA)
 })
 
 addRowButton.addEventListener('click', () => {
