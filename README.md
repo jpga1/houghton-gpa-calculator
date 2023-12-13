@@ -9,12 +9,12 @@ Credit and grading schemes are based on Houghton University's standards: https:/
 
 1. Download both the html and javascript files
 2. Place both files in the same directory
-3. Open the index.html file with a browser
+3. Open the index.html file with a web browser
 
 ## Usage
 
 1. Input the course title
-2. Select the course credit
+2. Input the course credit
 3. Select the anticipated grade
 4. Input the previous cummulative grade point average and the cummulative credits earned under their respective fields
 5. Click the "Calculate" button
