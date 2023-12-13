@@ -17,5 +17,5 @@ Credit and grading schemes are based on Houghton University's standards: https:/
 2. Select the course credit
 3. Select the anticipated grade
 4. Input the previous cummulative grade point average and the cummulative credits earned under their respective fields
-5. Click the "Calculate"
+5. Click the "Calculate" button
 6. The "Add Row" button can be used to add additional input rows
