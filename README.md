@@ -3,7 +3,7 @@
 ## Description
 
 Calculates the current semester grade point average and overall grade point average based on current semester credits, cummulative credits, and cummulative grade point average data.
-Credit and grading schemes are based on Houghton University's standards.
+Credit and grading schemes are based on Houghton University's standards: https://www.houghton.edu/wp-content/uploads/2023/10/2023-2024-Houghton-University-Catalog.pdf#page=35
 
 ## Installation
 
@@ -13,9 +13,9 @@ Credit and grading schemes are based on Houghton University's standards.
 
 ## Usage
 
-1. Input the course title in the "Course" labelled field
-2. Select the course credit under the "Credits" labelled field
-3. Select the anticipated grade under the "Expected Grade" labelled field
+1. Input the course title
+2. Select the course credit
+3. Select the anticipated grade
 4. Input the previous cummulative grade point average and the cummulative credits earned under their respective fields
 5. Click the "Calculate" button to view the anticipated current semester grade point average and the overall grade point average
 6. The "Add Row" button can be used to add additional input rows
