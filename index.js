@@ -34,9 +34,19 @@ addRowButton.addEventListener('click', () => {
 })
 
 function outputResultsToDocument(currentSemesterGPA, overallGPA){
+
+    // Remove previous results
+
+    const container = document.querySelector('.container')
+
+    clearPreviousOutput(container)
+
     // Prepare string
     const currentSemesterGPAOutput = document.createElement('span')
     const overallGPAOutput = document.createElement('span')
+
+    currentSemesterGPAOutput.classList.add('result')
+    overallGPAOutput.classList.add('result')
 
     currentSemesterGPAOutput.innerText = 'Current GPA: ' + currentSemesterGPA
     overallGPAOutput.innerHTML = 'Overall GPA: ' + overallGPA
@@ -49,10 +59,18 @@ function outputResultsToDocument(currentSemesterGPA, overallGPA){
     overallGPAOutput.style.fontSize = '24px'
 
     // Add to document
-    const container = document.querySelector('.container')
 
     container.append(currentSemesterGPAOutput)
     container.append(overallGPAOutput)
+}
+
+function clearPreviousOutput(container){
+
+    const results = container.querySelectorAll('.result')
+    
+    results.forEach(results => {
+        container.removeChild(results)
+    })
 }
 
 function makeNewRow(){
