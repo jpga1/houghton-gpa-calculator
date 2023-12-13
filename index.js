@@ -13,12 +13,12 @@ calculateButton.addEventListener('click', () => {
 
     // Calculate current semester gpa and overall gpa
 
-    const currentSemesterGPA = calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(2)
+    const currentSemesterGPA = calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(3)
     
     const overallGPA = calculateOverallGPA(weightedSum,
         document.querySelector('#previous-cumulative-gpa').value,
         document.querySelector('#previous-cumulative-credits-earned').value,
-        totalCredits).toFixed(2)
+        totalCredits).toFixed(3)
     
     outputResultsToDocument(currentSemesterGPA, overallGPA)
 })
@@ -80,18 +80,11 @@ function makeNewRow(){
     courseTitleInput.name = 'course-title'
 
     // New course credit input field
-    const courseCreditInput = document.createElement('select')
+    const courseCreditInput = document.createElement('input')
+    courseCreditInput.type = 'number'
     courseCreditInput.name = 'credits-earned'
     courseCreditInput.id = 'credits-earned'
-    
-    const courseCreditInputDefaultOption = document.createElement('option')
-    courseCreditInputDefaultOption.selected = true
-
-    courseCreditInput.append(courseCreditInputDefaultOption)
-
-    for(let i = 1.0; i < 5; i++){
-        courseCreditInput.append(makeNewOption(i.toFixed(1), i.toFixed(1)))
-    }
+    courseCreditInput.min = '1'
 
     // New expected grade input field
     const expectedGradeInput = document.createElement('select')
