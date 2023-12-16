@@ -14,10 +14,12 @@ calculateButton.addEventListener('click', () => {
     // Calculate current semester gpa and overall gpa
 
     const currentSemesterGPA = calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(3)
+
+    // console.log(typeof totalCredits)
     
     const overallGPA = calculateOverallGPA(weightedSum,
-        document.querySelector('#previous-cumulative-gpa').value,
-        document.querySelector('#previous-cumulative-credits-earned').value,
+        Number(document.querySelector('#previous-cumulative-gpa').value),
+        Number(document.querySelector('#previous-cumulative-credits-earned').value),
         totalCredits).toFixed(3)
     
     outputResultsToDocument(currentSemesterGPA, overallGPA)
@@ -131,7 +133,7 @@ function calculateWeightedSum(expectedGrades, creditsEarned){
 
     // Weighted sum calculation
     expectedGradesArray.map((value, index) => {
-        return value * creditsEarnedArray[index]
+        return Number(value) * Number(creditsEarnedArray[index])
     }).forEach(value => {
         weightedSum += value
     })
@@ -144,6 +146,5 @@ function calculateCurrentSemesterGPA(weightedSum, totalCredits){
 }
 
 function calculateOverallGPA(weightedSum, previousCumulativeGPA, previousCumulativeCredits, totalCredits){
-    return (weightedSum + (previousCumulativeGPA * previousCumulativeCredits))/
-    (totalCredits + Number(previousCumulativeCredits))
+    return (weightedSum + (previousCumulativeGPA * previousCumulativeCredits))/(totalCredits + previousCumulativeCredits)
 }
