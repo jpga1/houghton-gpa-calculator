@@ -4,19 +4,15 @@ const addRowButton = document.querySelector('.add-row-button')
 
 
 calculateButton.addEventListener('click', () => {
-    // Calculate the current semester credits
+    // Calculate the total semester credits
     const creditsEarned = document.querySelectorAll('#credits-earned')
-    let totalCredits = calculateCurrentSemesterCredits(creditsEarned)
+    let totalCredits = calculateTotalSemesterCredits(creditsEarned)
 
     // Calculate the weighted sum
     let weightedSum = calculateWeightedSum(document.querySelectorAll('#expected-grade'), creditsEarned)
 
     // Calculate current semester gpa and overall gpa
-
     const currentSemesterGPA = calculateCurrentSemesterGPA(weightedSum, totalCredits).toFixed(3)
-
-    // console.log(typeof totalCredits)
-    
     const overallGPA = calculateOverallGPA(weightedSum,
         Number(document.querySelector('#previous-cumulative-gpa').value),
         Number(document.querySelector('#previous-cumulative-credits-earned').value),
@@ -36,11 +32,9 @@ addRowButton.addEventListener('click', () => {
 })
 
 function outputResultsToDocument(currentSemesterGPA, overallGPA){
-
-    // Remove previous results
-
     const container = document.querySelector('.container')
-
+    
+    // Remove previous results
     clearPreviousOutput(container)
 
     // Prepare string
@@ -51,7 +45,7 @@ function outputResultsToDocument(currentSemesterGPA, overallGPA){
     overallGPAOutput.classList.add('result')
 
     currentSemesterGPAOutput.innerText = 'Current GPA: ' + currentSemesterGPA
-    overallGPAOutput.innerHTML = 'Overall GPA: ' + overallGPA
+    overallGPAOutput.innerText = 'Overall GPA: ' + overallGPA
 
     // Style
     currentSemesterGPAOutput.style.color = 'white'
@@ -61,7 +55,6 @@ function outputResultsToDocument(currentSemesterGPA, overallGPA){
     overallGPAOutput.style.fontSize = '24px'
 
     // Add to document
-
     container.append(currentSemesterGPAOutput)
     container.append(overallGPAOutput)
 }
@@ -114,7 +107,7 @@ function makeNewOption(value, text){
     return newOption
 }
 
-function calculateCurrentSemesterCredits(creditsEarned){
+function calculateTotalSemesterCredits(creditsEarned){
     let totalCredits = 0
 
     creditsEarned.forEach(credit => {
@@ -128,7 +121,6 @@ function calculateWeightedSum(expectedGrades, creditsEarned){
     let weightedSum = 0
 
     const expectedGradesArray = [...expectedGrades].map(grade => {return grade.value}).filter(grade => grade !== '')
-
     const creditsEarnedArray = [...creditsEarned].map(credit => {return credit.value}).filter(credit => credit !== '')
 
     // Weighted sum calculation
