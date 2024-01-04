@@ -5,6 +5,11 @@
 Calculates the current semester grade point average and overall grade point average based on current semester credits, cummulative credits, and cummulative grade point average data.
 Credit and grading schemes are based on Houghton University's standards: https://www.houghton.edu/wp-content/uploads/2023/10/2023-2024-Houghton-University-Catalog.pdf#page=35
 
+## Features
+
+- Calculates current and overall grade point averages
+- Additional input row insertion
+
 ## Installation
 
 1. Download both the html and javascript files
